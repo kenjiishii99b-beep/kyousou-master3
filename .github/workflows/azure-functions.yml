@@ -1,4 +1,4 @@
-name: Deploy Azure Function App
+name: Deploy Azure Functions
 
 on:
   push:
@@ -7,7 +7,7 @@ on:
 
 env:
   AZURE_FUNCTIONAPP_NAME: kyousou-api
-  PYTHON_VERSION: '3.11'
+  PYTHON_VERSION: "3.11"
 
 jobs:
   build-and-deploy:
