@@ -79,6 +79,6 @@ jobs:
         with:
           app-name: kyousou-api
           slot-name: Production
-          package: ${{ env.AZURE_FUNCTIONAPP_PACKAGE_PATH }}
+          package: .
           publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_3A7816DEEAB246D1948BB655EFBF5337 }}
           sku: flexconsumption
