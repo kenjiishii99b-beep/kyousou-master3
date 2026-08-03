@@ -77,7 +77,7 @@ jobs:
         uses: Azure/functions-action@v1
         id: deploy-to-function
         with:
-          app-name: kyousou-api
+          app-name: kyo
           slot-name: Production
           package: .
           publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_3A7816DEEAB246D1948BB655EFBF5337 }}
