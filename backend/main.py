@@ -21,7 +21,7 @@ app = FastAPI(
 origins = [
     "http://localhost:3000",                         # ローカル開発
     "http://127.0.0.1:3000",                         # ローカル開発
-    "https://calm-island-02d3b980f.7.azurestaticapps.net",  # Azure Static Web Apps
+    "https://blue-rock-0c5a67700.7.azurestaticapps.net",  # Azure Static Web Apps
 ]
 
 app.add_middleware(
