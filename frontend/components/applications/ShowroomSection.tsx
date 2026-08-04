@@ -14,7 +14,7 @@ import {
 
 import { fetchShowrooms } from "@/lib/api/showrooms";
 import { ApplicationFormData } from "@/types/application";
-import { Showroom } from "@/types/showroom";
+import { DEFAULT_FILTERS, Showroom } from "@/types/showroom";
 
 type Props = {
   value: ApplicationFormData;
@@ -41,12 +41,7 @@ export default function ShowroomSection({
   useEffect(() => {
     const load = async () => {
       try {
-        const data = await fetchShowrooms({
-          prefecture: "",
-          area: "",
-          categories: [],
-          visitorAttribute: "",
-        });
+        const data = await fetchShowrooms(DEFAULT_FILTERS);
 
         setShowrooms(data.items);
       } catch (err) {

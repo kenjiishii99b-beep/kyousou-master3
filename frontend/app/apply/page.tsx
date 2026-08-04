@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { Suspense, useEffect, useState } from "react";
 import { useSearchParams } from "next/navigation";
 
 import ApplyHeader from "@/components/applications/ApplyHeader";
@@ -31,6 +31,14 @@ type MeResponse = {
 };
 
 export default function ApplyPage() {
+  return (
+    <Suspense fallback={null}>
+      <ApplyPageContent />
+    </Suspense>
+  );
+}
+
+function ApplyPageContent() {
   const searchParams = useSearchParams();
 
   const showroomId = Number(

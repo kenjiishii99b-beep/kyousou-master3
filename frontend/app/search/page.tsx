@@ -8,16 +8,10 @@ import ShowroomList from "@/components/showrooms/ShowroomList";
 import { fetchShowrooms } from "@/lib/api/showrooms";
 
 import {
+  DEFAULT_FILTERS,
   SearchFilters,
   Showroom,
 } from "@/types/showroom";
-
-const DEFAULT_FILTERS: SearchFilters = {
-  prefecture: "",
-  area: "",
-  categories: [],
-  visitorAttribute: "",
-};
 
 export default function ShowroomSearchPage() {
   const [filters, setFilters] = useState<SearchFilters>(DEFAULT_FILTERS);
@@ -112,9 +106,8 @@ export default function ShowroomSearchPage() {
       <div className="grid grid-cols-1 lg:grid-cols-[320px_1fr] gap-8">
         <SearchFilter
           filters={filters}
-          onChange={setFilters}
+          onFiltersChange={setFilters}
           onSearch={handleSearch}
-          onReset={handleReset}
           onSaveCondition={handleSaveCondition}
         />
 
@@ -147,12 +140,8 @@ export default function ShowroomSearchPage() {
           {/* 一覧 */}
           {!loading && !error && (
             <ShowroomList
-              items={showrooms}
+              showrooms={showrooms}
               total={total}
-              loading={loading}
-              hasMore={false}
-              onLoadMore={() => {}}
-              onReset={handleReset}
             />
           )}
           

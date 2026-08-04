@@ -49,7 +49,7 @@ export default function AdminApprovalsPage() {
     setError(null);
 
     try {
-      await updateExhibitionStatus(item.id, "approved");
+      await updateExhibitionStatus(item.id, "exhibiting");
       await load();
     } catch (e) {
       setError(
@@ -80,7 +80,7 @@ export default function AdminApprovalsPage() {
     try {
       await updateExhibitionStatus(
         item.id,
-        "rejected",
+        "cancelled",
         reason.trim(),
       );
       await load();
@@ -146,9 +146,6 @@ export default function AdminApprovalsPage() {
 
                   <h2 className="text-lg font-semibold text-slate-900">
                     {item.companyName}
-                    <span className="ml-2 text-base font-medium text-slate-600">
-                      ｜{item.productName || "製品名未登録"}
-                    </span>
                   </h2>
 
                   <dl className="grid gap-x-8 gap-y-2 text-sm sm:grid-cols-2">

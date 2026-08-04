@@ -1,37 +1,30 @@
 // frontend/types/mypage.ts
 
-export type ApplicationStatus =
-  | "pending"
-  | "approved"
-  | "returned"
-  | "rejected"
-  | "exhibiting"
-  | "completed";
+export type ApplicationStatus = "pending" | "exhibiting" | "finished" | "cancelled";
 
 export const STATUS_LABEL: Record<ApplicationStatus, string> = {
   pending: "審査中",
-  approved: "承認",
-  returned: "差戻し",
-  rejected: "却下",
   exhibiting: "展示中",
-  completed: "展示終了",
+  finished: "終了",
+  cancelled: "却下",
 };
 
-export interface UserProfile {
-  id: number;
+export interface ProfileInfo {
+  lastName: string;
+  firstName: string;
   companyName: string;
-  userName: string;
   email: string;
   phone: string;
 }
 
 export interface ApplicationHistoryItem {
   id: number;
-  applicationNo: string;
+  showroomId: number;
   showroomName: string;
-  productName: string;
+  periodFrom: string;
+  periodTo: string;
+  categories: string[];
   status: ApplicationStatus;
-  appliedAt: string;
 }
 
 export interface ReportHistoryItem {
@@ -39,4 +32,10 @@ export interface ReportHistoryItem {
   title: string;
   date: string;
   downloadUrl: string;
+}
+
+export interface MypageResponse {
+  profile: ProfileInfo;
+  applications: ApplicationHistoryItem[];
+  reports: ReportHistoryItem[];
 }

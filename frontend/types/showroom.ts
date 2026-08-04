@@ -39,6 +39,15 @@ export interface Showroom {
 
   lat?: number;
   lng?: number;
+
+  category?: string;
+  summary?: string;
+  boothType?: string;
+  boothSize?: string;
+  power?: string;
+  wifi?: string;
+  parking?: string;
+  carryIn?: string;
 }
 
 export interface SearchFilters {

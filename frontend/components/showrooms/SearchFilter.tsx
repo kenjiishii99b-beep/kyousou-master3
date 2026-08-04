@@ -9,6 +9,7 @@ import {
   DoorOpen,
   Trees,
   Layers,
+  LucideIcon,
 } from "lucide-react";
 
 import CategoryButton from "./CategoryButton";
@@ -23,12 +24,13 @@ type SearchFilterProps = {
   filters: SearchFilters;
   onFiltersChange: (filters: SearchFilters) => void;
   onSearch: () => void;
+  onSaveCondition?: () => void;
 };
 
 const categories: {
   code: FacilityCode;
   label: string;
-  icon: React.ComponentType<{ size?: number; className?: string }>;
+  icon: LucideIcon;
 }[] = [
   {
     code: "kitchen",
@@ -76,6 +78,7 @@ export default function SearchFilter({
   filters,
   onFiltersChange,
   onSearch,
+  onSaveCondition,
 }: SearchFilterProps) {
   const toggleCategory = (category: FacilityCode) => {
     const exists = filters.categories.includes(category);
@@ -231,7 +234,10 @@ export default function SearchFilter({
         </button>
 
         {/* 保存（今後実装） */}
-        <button className="w-full rounded-lg border border-blue-600 py-3 text-sm font-bold text-blue-600 hover:bg-blue-50">
+        <button
+          onClick={onSaveCondition}
+          className="w-full rounded-lg border border-blue-600 py-3 text-sm font-bold text-blue-600 hover:bg-blue-50"
+        >
           条件を保存する
         </button>
       </div>
